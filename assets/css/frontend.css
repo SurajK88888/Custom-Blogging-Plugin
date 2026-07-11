@@ -1,0 +1,193 @@
+/**
+ * Custom Blog Pro - Frontend Styles
+ */
+
+ :root {
+    /* Base UI Tokens */
+    --cbp-primary-color: #2563eb;
+    --cbp-secondary-color: #1e40af;
+    --cbp-text-color: #1f2937;
+    --cbp-bg-color: #ffffff;
+    --cbp-card-bg: #ffffff;
+    --cbp-border-color: #e5e7eb;
+    
+    /* Layout & Spacing */
+    --cbp-gap: 2rem;
+    --cbp-border-radius: 12px;
+    --cbp-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --cbp-shadow-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    
+    /* Transitions */
+    --cbp-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Base Container */
+.cbp-archive-container,
+.cbp-single-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: var(--cbp-text-color);
+}
+
+/* Grid Layout */
+.cbp-grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: var(--cbp-gap);
+    margin-top: 2rem;
+}
+
+/* Card Styling */
+.cbp-card {
+    background: var(--cbp-card-bg);
+    border: 1px solid var(--cbp-border-color);
+    border-radius: var(--cbp-border-radius);
+    overflow: hidden;
+    box-shadow: var(--cbp-shadow);
+    transition: var(--cbp-transition);
+    display: flex;
+    flex-direction: column;
+}
+
+.cbp-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--cbp-shadow-hover);
+}
+
+.cbp-card-image {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.cbp-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--cbp-transition);
+}
+
+.cbp-card:hover .cbp-card-image img {
+    transform: scale(1.05);
+}
+
+.cbp-badge.featured-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: var(--cbp-primary-color);
+    color: #fff;
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.cbp-card-content {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.cbp-card-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin: 0 0 0.5rem 0;
+    line-height: 1.3;
+}
+
+.cbp-card-title a {
+    color: var(--cbp-text-color);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.cbp-card-title a:hover {
+    color: var(--cbp-primary-color);
+}
+
+.cbp-meta {
+    font-size: 0.875rem;
+    color: #6b7280;
+    margin-bottom: 1rem;
+}
+
+.cbp-card-excerpt {
+    font-size: 1rem;
+    color: #4b5563;
+    line-height: 1.5;
+    flex-grow: 1;
+}
+
+/* Single Post Specifics */
+.cbp-single-article {
+    background: var(--cbp-card-bg);
+    border-radius: var(--cbp-border-radius);
+    padding: 2rem;
+    box-shadow: var(--cbp-shadow);
+}
+
+.cbp-single-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.cbp-single-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+}
+
+.cbp-single-thumbnail {
+    margin-bottom: 2rem;
+    border-radius: var(--cbp-border-radius);
+    overflow: hidden;
+}
+
+.cbp-single-thumbnail img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.cbp-single-content {
+    font-size: 1.125rem;
+    line-height: 1.75;
+    color: #374151;
+}
+
+/* Reading Progress Bar */
+.cbp-progress-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: transparent;
+    z-index: 9999;
+}
+
+.cbp-progress-bar {
+    height: 100%;
+    background: var(--cbp-primary-color);
+    width: 0%;
+    transition: width 0.1s;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .cbp-grid-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .cbp-single-title {
+        font-size: 2rem;
+    }
+}

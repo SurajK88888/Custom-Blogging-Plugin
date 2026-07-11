@@ -1,0 +1,134 @@
+/**
+ * Custom Blog Pro - Admin Settings Styles
+ * Isolated to toplevel_page_cbp-settings
+ */
+
+ .cbp-admin-wrap {
+    max-width: 1200px;
+    margin: 20px 20px 20px 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+.cbp-admin-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+    padding: 20px 30px;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+
+.cbp-admin-header h1 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 600;
+    color: #1e293b;
+}
+
+.cbp-admin-layout {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+}
+
+/* Tabs UI */
+.cbp-tabs-nav {
+    width: 250px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    padding: 10px 0;
+    flex-shrink: 0;
+}
+
+.cbp-tabs-nav a {
+    display: block;
+    padding: 12px 20px;
+    color: #64748b;
+    text-decoration: none;
+    font-weight: 500;
+    border-left: 3px solid transparent;
+    transition: all 0.2s;
+}
+
+.cbp-tabs-nav a:hover {
+    background: #f8fafc;
+    color: #334155;
+}
+
+.cbp-tabs-nav a.active {
+    color: #2563eb;
+    background: #eff6ff;
+    border-left-color: #2563eb;
+}
+
+/* Content Area */
+.cbp-tabs-content {
+    flex-grow: 1;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    padding: 30px;
+}
+
+.cbp-tab-pane {
+    display: none;
+}
+
+.cbp-tab-pane.active {
+    display: block;
+}
+
+/* Form Styles */
+.cbp-tabs-content h2 {
+    margin-top: 0;
+    border-bottom: 1px solid #e2e8f0;
+    padding-bottom: 10px;
+    color: #0f172a;
+}
+
+.cbp-tabs-content .form-table th {
+    font-weight: 600;
+    color: #334155;
+}
+
+.cbp-tabs-content input[type="text"],
+.cbp-tabs-content input[type="password"],
+.cbp-tabs-content input[type="color"],
+.cbp-tabs-content select,
+.cbp-tabs-content textarea {
+    width: 100%;
+    max-width: 400px;
+    border: 1px solid #cbd5e1;
+    border-radius: 4px;
+    padding: 6px 10px;
+}
+
+.cbp-tabs-content textarea {
+    height: 100px;
+}
+
+/* Save Button */
+.cbp-submit-wrap {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #e2e8f0;
+}
+
+.cbp-btn {
+    background: #2563eb;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+    font-size: 14px;
+}
+
+.cbp-btn:hover {
+    background: #1d4ed8;
+}

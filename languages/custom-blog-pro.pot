@@ -1,0 +1,65 @@
+# Copyright (C) 2026 yourname
+# This file is distributed under the same license as the Custom Blog Pro (CBP) package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Custom Blog Pro (CBP) 1.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-07-11 10:00:00+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2026-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-Country: United States\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: "
+"__;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;_nx_noop:1,2,3c;esc_"
+"attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;esc_html_x:1,2c;\n"
+"X-Poedit-Basepath: ../\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-Bookmarks: \n"
+"X-Textdomain-Support: yes\n"
+"X-Generator: grunt-wp-i18n 1.0.3\n"
+
+#: includes/post/CPT.php:40
+msgid "CBP Blogs"
+msgstr ""
+
+#: includes/post/CPT.php:41
+msgid "Blog"
+msgstr ""
+
+#: includes/post/CPT.php:42
+msgid "Add New Blog"
+msgstr ""
+
+#: includes/post/CPT.php:43
+msgid "Edit Blog"
+msgstr ""
+
+#: includes/post/CPT.php:44
+msgid "New Blog"
+msgstr ""
+
+#: includes/post/CPT.php:45
+msgid "View Blog"
+msgstr ""
+
+#: includes/admin/Dashboard.php:30
+msgid "Custom Blog Pro Dashboard"
+msgstr ""
+
+#: includes/admin/Dashboard.php:31
+msgid "Custom Blog Pro"
+msgstr ""
+
+#: templates/admin/dashboard-page.php:8
+msgid "Dashboard Overview"
+msgstr ""
+
+#: templates/admin/settings-page.php:12
+msgid "Custom Blog Pro Settings"
+msgstr ""
