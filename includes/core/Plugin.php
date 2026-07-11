@@ -113,6 +113,14 @@ final class Plugin {
         if ( class_exists( '\CBP\ajax\FrontendAjax' ) ) {
             \CBP\ajax\FrontendAjax::init();
         }
+        if ( class_exists( '\CBP\ajax\FrontendSubmission' ) ) {
+            \CBP\ajax\FrontendSubmission::init();
+        }
+
+        // Initialize Shortcodes (frontend form, etc.)
+        if ( class_exists( '\CBP\frontend\Shortcodes' ) ) {
+            \CBP\frontend\Shortcodes::init();
+        }
 
         // Initialize Email Module
         if ( class_exists( '\CBP\email\Cron' ) ) {

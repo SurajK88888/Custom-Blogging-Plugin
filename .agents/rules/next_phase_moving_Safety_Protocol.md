@@ -22,3 +22,5 @@ Maintain the sync between wordpress plugin , backend and all other UI elements a
 
 ##After phase completed
 Always mention what next phase is, if available?
+
+Always update the Readme file.

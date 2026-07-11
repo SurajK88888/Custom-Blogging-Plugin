@@ -13,19 +13,8 @@ class EmailCampaigns {
     const PAGE_SLUG = 'cbp-email-campaigns';
 
     public static function init() {
-        add_action( 'admin_menu', [ __CLASS__, 'add_submenu' ], 20 );
+        // Menu registration is handled centrally by Dashboard::add_admin_menu()
         add_action( 'admin_init', [ __CLASS__, 'handle_form_submission' ] );
-    }
-
-    public static function add_submenu() {
-        add_submenu_page(
-            \CBP\admin\Dashboard::PAGE_SLUG,
-            __( 'Email Campaigns', 'custom-blog-pro' ),
-            __( 'Email Campaigns', 'custom-blog-pro' ),
-            'manage_options',
-            self::PAGE_SLUG,
-            [ __CLASS__, 'render_page' ]
-        );
     }
 
     public static function render_page() {

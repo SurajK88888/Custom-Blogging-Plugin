@@ -18,22 +18,8 @@ class Settings {
      * Initialize Admin Hooks
      */
     public static function init() {
-        add_action( 'admin_menu', [ __CLASS__, 'add_admin_menu' ] );
+        // Menu registration is handled centrally by Dashboard::add_admin_menu()
         add_action( 'admin_enqueue_scripts', [ __CLASS__, 'enqueue_admin_assets' ] );
-    }
-
-    /**
-     * Add the submenu item under Dashboard.
-     */
-    public static function add_admin_menu() {
-        add_submenu_page(
-            \CBP\admin\Dashboard::PAGE_SLUG,
-            __( 'Custom Blog Pro Settings', 'custom-blog-pro' ),
-            __( 'Settings', 'custom-blog-pro' ),
-            'manage_options',
-            self::PAGE_SLUG,
-            [ __CLASS__, 'render_settings_page' ]
-        );
     }
 
     /**

@@ -44,6 +44,13 @@ class Assets {
             'rest_url' => esc_url_raw( rest_url() ),
             'nonce'    => wp_create_nonce( 'wp_rest' ),
         ] );
+
+        // Separate localization object for the submission form
+        // Keeps concerns separated: cbpSettings = global, cbpFrontendData = form-specific
+        wp_localize_script( 'cbp-frontend-js', 'cbpFrontendData', [
+            'ajax_url' => admin_url( 'admin-ajax.php' ),
+            'nonce'    => wp_create_nonce( 'cbp_submit_blog_action' ),
+        ] );
     }
 
     /**

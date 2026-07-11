@@ -23,17 +23,50 @@ class Dashboard {
     }
 
     /**
-     * Add the top-level menu item.
+     * Add the top-level menu and all sub-menu items.
+     * The cbp_blog CPT (All Blogs, Add New, Categories, Tags) is automatically
+     * nested here because CPT::register_post_type() sets show_in_menu = 'cbp-dashboard'.
      */
     public static function add_admin_menu() {
+        // Top-level parent menu
         add_menu_page(
             __( 'Custom Blog Pro Dashboard', 'custom-blog-pro' ),
             __( 'Custom Blog Pro', 'custom-blog-pro' ),
             'manage_options',
             self::PAGE_SLUG,
             [ __CLASS__, 'render_dashboard_page' ],
-            'dashicons-chart-area', // Better icon for the dashboard
+            'dashicons-chart-area',
             58
+        );
+
+        // Dashboard sub-menu (mirrors top-level so label can differ)
+        add_submenu_page(
+            self::PAGE_SLUG,
+            __( 'Dashboard', 'custom-blog-pro' ),
+            __( 'Dashboard', 'custom-blog-pro' ),
+            'manage_options',
+            self::PAGE_SLUG,
+            [ __CLASS__, 'render_dashboard_page' ]
+        );
+
+        // Settings sub-menu
+        add_submenu_page(
+            self::PAGE_SLUG,
+            __( 'CBP Settings', 'custom-blog-pro' ),
+            __( 'Settings', 'custom-blog-pro' ),
+            'manage_options',
+            'cbp-settings',
+            [ '\CBP\admin\Settings', 'render_settings_page' ]
+        );
+
+        // Email Campaigns sub-menu
+        add_submenu_page(
+            self::PAGE_SLUG,
+            __( 'Email Campaigns', 'custom-blog-pro' ),
+            __( 'Email Campaigns', 'custom-blog-pro' ),
+            'manage_options',
+            'cbp-email-campaigns',
+            [ '\CBP\admin\EmailCampaigns', 'render_page' ]
         );
     }
 
@@ -89,6 +122,8 @@ class Dashboard {
             // Provide KPIs to the template
             $kpis = \CBP\analytics\AnalyticsEngine::get_kpis();
             $popular_posts = \CBP\analytics\AnalyticsEngine::get_popular_posts();
+            // Count pending user submissions waiting for review
+            $pending_count = wp_count_posts( \CBP\post\CPT::POST_TYPE )->pending ?? 0;
             include $template;
         } else {
             echo '<div class="wrap"><h1>' . esc_html__( 'Template Missing', 'custom-blog-pro' ) . '</h1></div>';

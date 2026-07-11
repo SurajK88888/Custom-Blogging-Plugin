@@ -30,6 +30,17 @@ if ( ! defined( 'ABSPATH' ) ) exit;
             <span class="cbp-kpi-title"><?php esc_html_e( 'Emails Sent', 'custom-blog-pro' ); ?></span>
             <span class="cbp-kpi-value"><?php echo number_format_i18n( $kpis['total_emails'] ?? 0 ); ?></span>
         </div>
+        <div class="cbp-kpi-card" style="border-left: 4px solid #f59e0b;">
+            <span class="cbp-kpi-title"><?php esc_html_e( 'Pending Review', 'custom-blog-pro' ); ?></span>
+            <span class="cbp-kpi-value" style="color: #f59e0b;">
+                <?php echo number_format_i18n( $pending_count ?? 0 ); ?>
+            </span>
+            <?php if ( ! empty( $pending_count ) ) : ?>
+            <a href="<?php echo esc_url( admin_url( 'edit.php?post_type=cbp_blog&post_status=pending' ) ); ?>" style="font-size:12px; color:#f59e0b; text-decoration:underline; margin-top:4px; display:block;">
+                <?php esc_html_e( 'Review Posts →', 'custom-blog-pro' ); ?>
+            </a>
+            <?php endif; ?>
+        </div>
     </div>
 
     <!-- Layout: Chart & Popular Posts -->

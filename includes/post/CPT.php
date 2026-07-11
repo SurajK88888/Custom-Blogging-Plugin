@@ -62,7 +62,9 @@ class CPT {
             'hierarchical'          => false,
             'public'                => true,
             'show_ui'               => true,
-            'show_in_menu'          => true,
+            // Nest under the Custom Blog Pro top-level menu (cbp-dashboard slug)
+            // instead of creating a separate top-level entry.
+            'show_in_menu'          => 'cbp-dashboard',
             'menu_position'         => 5,
             'menu_icon'             => 'dashicons-welcome-write-blog',
             'show_in_admin_bar'     => true,
