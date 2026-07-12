@@ -33,15 +33,6 @@ class Components {
             <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo esc_attr( $url ); ?>" target="_blank" rel="noopener noreferrer" class="cbp-share-btn facebook">Facebook</a>
             <a href="https://www.linkedin.com/shareArticle?mini=true&url=<?php echo esc_attr( $url ); ?>&title=<?php echo esc_attr( $title ); ?>" target="_blank" rel="noopener noreferrer" class="cbp-share-btn linkedin">LinkedIn</a>
         </div>
-        <style>
-            .cbp-social-share { margin: 2rem 0; padding-top: 2rem; border-top: 1px solid var(--cbp-border-color); display: flex; align-items: center; gap: 1rem; }
-            .cbp-share-label { font-weight: 600; }
-            .cbp-share-btn { padding: 0.5rem 1rem; border-radius: var(--cbp-border-radius); text-decoration: none; color: white; font-weight: 500; transition: opacity 0.2s; }
-            .cbp-share-btn:hover { opacity: 0.8; color: white; text-decoration: none;}
-            .cbp-share-btn.twitter { background: #1DA1F2; }
-            .cbp-share-btn.facebook { background: #4267B2; }
-            .cbp-share-btn.linkedin { background: #0077b5; }
-        </style>
         <?php
     }
 

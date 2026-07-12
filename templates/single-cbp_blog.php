@@ -30,7 +30,7 @@ $components = class_exists( '\CBP\frontend\Components' ) ? new \CBP\frontend\Com
                     
                     <div class="cbp-single-meta">
                         <span class="cbp-author"><?php esc_html_e( 'By', 'custom-blog-pro' ); ?> <?php the_author_posts_link(); ?></span>
-                        <span class="cbp-date">&bull; <?php echo get_the_date(); ?></span>
+                        <span class="cbp-date">&bull; <?php echo get_the_date(); ?> <?php esc_html_e( 'at', 'custom-blog-pro' ); ?> <?php echo get_the_time(); ?></span>
                         <?php if ( $reading_time ) : ?>
                             <span class="cbp-reading-time">&bull; <?php echo esc_html( $reading_time ); ?> <?php esc_html_e( 'min read', 'custom-blog-pro' ); ?></span>
                         <?php endif; ?>
@@ -63,9 +63,11 @@ $components = class_exists( '\CBP\frontend\Components' ) ? new \CBP\frontend\Com
             <?php
             // If comments are open or we have at least one comment, load up the comment template.
             if ( comments_open() || get_comments_number() ) :
-                comments_template();
-            endif;
             ?>
+            <div class="cbp-comments-card">
+                <?php comments_template(); ?>
+            </div>
+            <?php endif; ?>
 
             <div class="cbp-related-posts-section">
                 <?php if ( $components ) { $components->render_related_posts( get_the_ID() ); } ?>

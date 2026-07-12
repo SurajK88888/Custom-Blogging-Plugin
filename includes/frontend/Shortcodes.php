@@ -21,6 +21,8 @@ class Shortcodes {
      */
     public static function init() {
         add_shortcode( 'cbp_submit_form', [ __CLASS__, 'render_submit_form' ] );
+        // Blog listing grid — Usage: [cbp_blog_grid] or [cbp_blog_grid columns="3" posts_per_page="9"]
+        add_shortcode( 'cbp_blog_grid', [ __CLASS__, 'render_blog_grid' ] );
     }
 
     /**
@@ -59,6 +61,64 @@ class Shortcodes {
         if ( file_exists( $template ) ) {
             include $template;
         }
+        return ob_get_clean();
+    }
+
+    /**
+     * Render the Blog Listing Grid
+     *
+     * Usage: [cbp_blog_grid]
+     * Attributes:
+     *   - posts_per_page  : Number of posts to show (default: 9, -1 = all)
+     *   - columns         : Grid columns hint for CSS class (2 or 3, default: 3)
+     *   - category        : cbp_category slug to filter by (optional)
+     *   - orderby         : date | title | rand (default: date)
+     *
+     * @param array $atts Shortcode attributes.
+     * @return string HTML output
+     */
+    public static function render_blog_grid( $atts ) {
+        // Sanitize and parse shortcode attributes
+        $atts = shortcode_atts(
+            [
+                'posts_per_page' => 9,
+                'columns'        => 3,
+                'category'       => '',
+                'orderby'        => 'date',
+            ],
+            $atts,
+            'cbp_blog_grid'
+        );
+
+        $query_args = [
+            'post_type'      => 'cbp_blog',
+            'post_status'    => 'publish',
+            'posts_per_page' => absint( $atts['posts_per_page'] ),
+            'orderby'        => sanitize_key( $atts['orderby'] ),
+            'order'          => 'DESC',
+        ];
+
+        // Optional category filter
+        if ( ! empty( $atts['category'] ) ) {
+            $query_args['tax_query'] = [
+                [
+                    'taxonomy' => 'cbp_category',
+                    'field'    => 'slug',
+                    'terms'    => sanitize_text_field( $atts['category'] ),
+                ],
+            ];
+        }
+
+        $blog_query = new \WP_Query( $query_args );
+
+        // Capture output using output buffering — shortcodes must return, not echo
+        ob_start();
+        $template = CBP_PLUGIN_DIR . 'templates/frontend/blog-grid.php';
+        if ( file_exists( $template ) ) {
+            include $template;
+        }
+        wp_reset_postdata();
+
         return ob_get_clean();
     }
 }

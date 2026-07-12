@@ -23,12 +23,13 @@ class DynamicCSS {
      * Output inline CSS variables to override defaults in frontend.css.
      */
     public static function output_css_variables() {
-        $primary   = get_option( 'cbp_primary_color', '#2563eb' );
-        $secondary = get_option( 'cbp_secondary_color', '#1e40af' );
-        $radius    = get_option( 'cbp_border_radius', '12px' );
-        $font      = get_option( 'cbp_font_family', 'Inter' );
-        $shadow    = get_option( 'cbp_card_shadow', '0 4px 6px -1px rgba(0, 0, 0, 0.1)' );
-        $dark_mode = get_option( 'cbp_dark_mode', '0' );
+        $primary    = get_option( 'cbp_primary_color', '#2563eb' );
+        $secondary  = get_option( 'cbp_secondary_color', '#1e40af' );
+        $header_bg  = get_option( 'cbp_header_bg_color', '#6c63ff' );
+        $radius     = get_option( 'cbp_border_radius', '12px' );
+        $font       = get_option( 'cbp_font_family', 'Inter' );
+        $shadow     = get_option( 'cbp_card_shadow', '0 4px 6px -1px rgba(0, 0, 0, 0.1)' );
+        $dark_mode  = get_option( 'cbp_dark_mode', '0' );
 
         // Enqueue Google Font if needed
         if ( in_array( $font, ['Inter', 'Roboto', 'Open Sans', 'Lato', 'Poppins', 'Outfit'] ) ) {
@@ -41,6 +42,7 @@ class DynamicCSS {
             :root {
                 --cbp-primary-color: " . esc_attr( $primary ) . ";
                 --cbp-secondary-color: " . esc_attr( $secondary ) . ";
+                --cbp-header-bg: " . esc_attr( $header_bg ) . ";
                 --cbp-border-radius: " . esc_attr( $radius ) . ";
                 --cbp-font-family: '" . esc_attr( $font ) . "', sans-serif;
                 --cbp-shadow: " . esc_attr( $shadow ) . ";

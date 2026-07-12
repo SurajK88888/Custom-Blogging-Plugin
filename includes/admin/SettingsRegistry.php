@@ -32,6 +32,7 @@ class SettingsRegistry {
         add_settings_section( 'cbp_appearance_section', null, null, self::GROUP );
         self::register_field( 'cbp_primary_color', '#2563eb', 'sanitize_hex_color' );
         self::register_field( 'cbp_secondary_color', '#1e40af', 'sanitize_hex_color' );
+        self::register_field( 'cbp_header_bg_color', '#6c63ff', 'sanitize_hex_color' );
         self::register_field( 'cbp_border_radius', '12px', 'sanitize_text_field' );
         self::register_field( 'cbp_font_family', 'Inter', 'sanitize_text_field' );
         self::register_field( 'cbp_dark_mode', '0', 'absint' );

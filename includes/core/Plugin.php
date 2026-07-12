@@ -161,6 +161,10 @@ final class Plugin {
             if ( class_exists( '\CBP\admin\Tools' ) ) {
                 \CBP\admin\Tools::init();
             }
+            // Status column + AJAX updater on the CBP blog post list screen
+            if ( class_exists( '\CBP\admin\BlogListColumns' ) ) {
+                \CBP\admin\BlogListColumns::init();
+            }
         }
 
         if ( class_exists( '\CBP\customizer\DynamicCSS' ) ) {

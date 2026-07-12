@@ -51,6 +51,13 @@ settings_errors( 'cbp_settings' );
                         </td>
                     </tr>
                     <tr>
+                        <th scope="row"><label for="cbp_header_bg_color"><?php esc_html_e( 'Blog Header Background Color', 'custom-blog-pro' ); ?></label></th>
+                        <td>
+                            <input type="color" id="cbp_header_bg_color" name="cbp_header_bg_color" value="<?php echo esc_attr( get_option('cbp_header_bg_color', '#6c63ff') ); ?>" style="width:50px; height: 35px; padding:0; border:none; border-radius:4px;" />
+                            <p class="description"><?php esc_html_e( 'Background color of the blog post title header banner on single post pages.', 'custom-blog-pro' ); ?></p>
+                        </td>
+                    </tr>
+                    <tr>
                         <th scope="row"><label for="cbp_border_radius"><?php esc_html_e( 'Border Radius', 'custom-blog-pro' ); ?></label></th>
                         <td>
                             <input type="text" id="cbp_border_radius" name="cbp_border_radius" value="<?php echo esc_attr( get_option('cbp_border_radius', '12px') ); ?>" />

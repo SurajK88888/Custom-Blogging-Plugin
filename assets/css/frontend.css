@@ -124,29 +124,206 @@
     color: #4b5563;
     line-height: 1.5;
     flex-grow: 1;
+    margin-bottom: 1rem;
 }
 
-/* Single Post Specifics */
+/* ── Card footer meta (author · date · reading time) ── */
+.cbp-card-footer-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 1rem;
+    font-size: 0.8rem;
+    color: #6b7280;
+    margin-bottom: 1.1rem;
+    align-items: center;
+}
+
+.cbp-card-footer-meta svg {
+    vertical-align: middle;
+    flex-shrink: 0;
+}
+
+.cbp-meta-author,
+.cbp-meta-date,
+.cbp-meta-read {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/* ── Read More button ── */
+.cbp-read-more-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: auto;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--cbp-primary-color);
+    text-decoration: none;
+    transition: gap 0.2s ease, color 0.2s ease;
+}
+
+.cbp-read-more-btn:hover {
+    color: var(--cbp-secondary-color);
+    gap: 10px;
+    text-decoration: none;
+}
+
+/* ── No image placeholder ── */
+.cbp-card-no-image {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #e0e7ff 0%, #f3f4f6 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cbp-card-no-image .dashicons {
+    font-size: 3rem;
+    width: 3rem;
+    height: 3rem;
+    color: #a5b4fc;
+}
+
+/* ── Columns modifier ── */
+.cbp-grid-cols-2 .cbp-shortcode-grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+}
+
+/* ── Pagination ── */
+.cbp-pagination {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 2.5rem;
+}
+
+.cbp-pagination .page-numbers {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 40px;
+    height: 40px;
+    padding: 0 0.75rem;
+    border: 2px solid var(--cbp-border-color);
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--cbp-text-color);
+    text-decoration: none;
+    transition: var(--cbp-transition);
+    background: #fff;
+}
+
+.cbp-pagination .page-numbers:hover,
+.cbp-pagination .page-numbers.current {
+    background: var(--cbp-primary-color);
+    border-color: var(--cbp-primary-color);
+    color: #fff;
+}
+
+/* ── No posts message ── */
+.cbp-no-posts {
+    text-align: center;
+    color: #6b7280;
+    padding: 3rem;
+    font-size: 1.1rem;
+}
+
+/* ============================================================
+   Single Post Specifics
+   ============================================================ */
 .cbp-single-article {
     background: var(--cbp-card-bg);
     border-radius: var(--cbp-border-radius);
-    padding: 2rem;
+    overflow: hidden;
     box-shadow: var(--cbp-shadow);
 }
 
+/* Colorful Header Banner — color controlled from Settings > Appearance */
 .cbp-single-header {
+    background: var(--cbp-header-bg, #6c63ff);
+    border-radius: 20px;
+    padding: 3rem 2.5rem 2.5rem;
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 2rem;  /* gap between header banner and the content body below */
+    position: relative;
+    overflow: hidden;
+}
+
+/* Subtle decorative circles in the header background */
+.cbp-single-header::before,
+.cbp-single-header::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.08);
+    pointer-events: none;
+}
+.cbp-single-header::before {
+    width: 300px;
+    height: 300px;
+    top: -100px;
+    right: -80px;
+}
+.cbp-single-header::after {
+    width: 200px;
+    height: 200px;
+    bottom: -70px;
+    left: -50px;
 }
 
 .cbp-single-title {
     font-size: 2.5rem;
     font-weight: 800;
+    color: #ffffff;
     margin-bottom: 1rem;
+    line-height: 1.25;
+    position: relative;
+    z-index: 1;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Meta row: author · date at time · reading time */
+.cbp-single-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem 1rem;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.88);
+    position: relative;
+    z-index: 1;
+}
+
+.cbp-single-meta a {
+    color: rgba(255, 255, 255, 0.95);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.cbp-single-meta .cbp-author,
+.cbp-single-meta .cbp-date,
+.cbp-single-meta .cbp-reading-time {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    background: rgba(255, 255, 255, 0.15);
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+    backdrop-filter: blur(4px);
+}
+
+.cbp-single-content-wrap {
+    padding: 2rem;
 }
 
 .cbp-single-thumbnail {
-    margin-bottom: 2rem;
+    margin: 0 2rem 2rem;
     border-radius: var(--cbp-border-radius);
     overflow: hidden;
 }
@@ -161,9 +338,261 @@
     font-size: 1.125rem;
     line-height: 1.75;
     color: #374151;
+    padding: 0 2rem 2rem;
 }
 
-/* Reading Progress Bar */
+/* Single Post Footer — wraps the social share bar */
+.cbp-single-footer {
+    padding: 0 2rem 2rem;
+}
+
+/* Social Share Bar */
+.cbp-social-share {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem 1rem;
+    padding: 1.5rem 2rem;
+    margin-top: 0;
+    border-top: 1px solid var(--cbp-border-color);
+    border-radius: 0 0 var(--cbp-border-radius) var(--cbp-border-radius);
+    background: #f9fafb;
+}
+
+.cbp-share-label {
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--cbp-text-color);
+    margin-right: 0.25rem;
+}
+
+.cbp-share-btn {
+    padding: 0.5rem 1.25rem;
+    border-radius: 999px;
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: transform 0.2s, opacity 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.cbp-share-btn:hover {
+    opacity: 0.85;
+    color: white;
+    text-decoration: none;
+    transform: translateY(-2px);
+}
+
+.cbp-share-btn.twitter  { background: #1DA1F2; }
+.cbp-share-btn.facebook { background: #4267B2; }
+.cbp-share-btn.linkedin { background: #0077b5; }
+
+/* ============================================================
+   Comments Section — Card UI
+   Wraps WordPress native comments_template() output.
+   All selectors scoped under .cbp-comments-card to avoid
+   conflicts with the active theme's global comment styles.
+   ============================================================ */
+.cbp-comments-card {
+    background: var(--cbp-card-bg, #ffffff);
+    border-radius: var(--cbp-border-radius, 12px);
+    box-shadow: var(--cbp-shadow);
+    margin-top: 2rem;
+    overflow: hidden;
+}
+
+/* Inner padding for the entire comments area */
+.cbp-comments-card #comments {
+    padding: 2rem;
+}
+
+/* "Leave a Reply" / "X Comments" heading */
+.cbp-comments-card #comments > h2,
+.cbp-comments-card .comments-title,
+.cbp-comments-card #reply-title {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--cbp-text-color, #1f2937);
+    padding-bottom: 1rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid var(--cbp-border-color, #e5e7eb);
+}
+
+/* Individual comment items */
+.cbp-comments-card .comment-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2rem 0;
+}
+
+.cbp-comments-card .comment-list li {
+    list-style: none;
+}
+
+.cbp-comments-card .comment-body {
+    background: #f9fafb;
+    border: 1px solid var(--cbp-border-color, #e5e7eb);
+    border-radius: 12px;
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 1rem;
+    transition: box-shadow 0.2s;
+}
+
+.cbp-comments-card .comment-body:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.07);
+}
+
+/* Author name + date in comments */
+.cbp-comments-card .comment-author .fn {
+    font-weight: 700;
+    color: var(--cbp-text-color, #1f2937);
+    font-size: 0.95rem;
+}
+
+.cbp-comments-card .comment-metadata {
+    font-size: 0.8rem;
+    color: #9ca3af;
+    margin-top: 0.2rem;
+}
+
+.cbp-comments-card .comment-metadata a {
+    color: #9ca3af;
+    text-decoration: none;
+}
+
+/* Comment text */
+.cbp-comments-card .comment-content p {
+    margin: 0.75rem 0 0;
+    font-size: 0.975rem;
+    line-height: 1.7;
+    color: #374151;
+}
+
+/* Reply link */
+.cbp-comments-card .reply a {
+    display: inline-block;
+    margin-top: 0.75rem;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--cbp-primary-color, #2563eb);
+    text-decoration: none;
+    padding: 0.25rem 0.75rem;
+    border: 1px solid var(--cbp-primary-color, #2563eb);
+    border-radius: 999px;
+    transition: background 0.2s, color 0.2s;
+}
+
+.cbp-comments-card .reply a:hover {
+    background: var(--cbp-primary-color, #2563eb);
+    color: #fff;
+}
+
+/* Comment Form */
+.cbp-comments-card #respond {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--cbp-border-color, #e5e7eb);
+}
+
+.cbp-comments-card #respond .comment-form input[type="text"],
+.cbp-comments-card #respond .comment-form input[type="email"],
+.cbp-comments-card #respond .comment-form input[type="url"],
+.cbp-comments-card #respond .comment-form textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 2px solid var(--cbp-border-color, #e5e7eb);
+    border-radius: 8px;
+    font-size: 0.975rem;
+    font-family: var(--cbp-font-family, 'Inter', sans-serif);
+    background: #fafafa;
+    color: var(--cbp-text-color, #1f2937);
+    transition: border-color 0.2s, box-shadow 0.2s;
+    box-sizing: border-box;
+}
+
+.cbp-comments-card #respond .comment-form input:focus,
+.cbp-comments-card #respond .comment-form textarea:focus {
+    outline: none;
+    border-color: var(--cbp-primary-color, #2563eb);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+    background: #fff;
+}
+
+.cbp-comments-card #respond .comment-form textarea {
+    min-height: 140px;
+    resize: vertical;
+}
+
+/* Submit button */
+.cbp-comments-card #respond .form-submit input[type="submit"] {
+    background: var(--cbp-primary-color, #2563eb);
+    color: #fff;
+    border: none;
+    padding: 0.75rem 2.5rem;
+    border-radius: 999px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.2s, transform 0.2s;
+}
+
+.cbp-comments-card #respond .form-submit input[type="submit"]:hover {
+    opacity: 0.88;
+    transform: translateY(-2px);
+}
+
+/* ============================================================
+   Related Posts — Card Grid
+   ============================================================ */
+.cbp-related-posts-section {
+    padding: 2rem;
+    border-top: 1px solid var(--cbp-border-color);
+    margin-top: 1rem;
+}
+
+.cbp-related-title {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--cbp-text-color);
+    margin-bottom: 1.25rem;
+}
+
+/* Related posts use the same .cbp-grid-container and .cbp-card classes */
+.cbp-related-posts-section .cbp-grid-container {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.25rem;
+    margin-top: 0;
+}
+
+.cbp-related-posts-section .cbp-card {
+    border-radius: 16px;
+    transition: var(--cbp-transition);
+}
+
+.cbp-related-posts-section .cbp-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--cbp-shadow-hover);
+}
+
+.cbp-related-posts-section .cbp-card-image {
+    height: 140px;
+}
+
+.cbp-related-posts-section .cbp-card-content {
+    padding: 1rem;
+}
+
+.cbp-related-posts-section .cbp-card-title {
+    font-size: 1rem;
+    margin: 0;
+}
+
+/* ============================================================
+   Reading Progress Bar
+   ============================================================ */
 .cbp-progress-container {
     position: fixed;
     top: 0;
@@ -181,13 +610,28 @@
     transition: width 0.1s;
 }
 
-/* Responsive */
+/* ============================================================
+   Responsive
+   ============================================================ */
 @media (max-width: 768px) {
     .cbp-grid-container {
         grid-template-columns: 1fr;
     }
     
     .cbp-single-title {
-        font-size: 2rem;
+        font-size: 1.75rem;
+    }
+
+    .cbp-single-header {
+        padding: 2rem 1.25rem 1.75rem;
+        border-radius: 16px;
+    }
+
+    .cbp-single-content {
+        padding: 0 1rem 1.5rem;
+    }
+
+    .cbp-single-thumbnail {
+        margin: 0 1rem 1.5rem;
     }
 }

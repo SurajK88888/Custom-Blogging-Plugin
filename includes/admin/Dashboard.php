@@ -49,6 +49,46 @@ class Dashboard {
             [ __CLASS__, 'render_dashboard_page' ]
         );
 
+        // --- Blog Management Sub-Menus ---
+
+        // All Blogs - links to the native WP post list for cbp_blog
+        add_submenu_page(
+            self::PAGE_SLUG,
+            __( 'All Blogs', 'custom-blog-pro' ),
+            __( 'All Blogs', 'custom-blog-pro' ),
+            'edit_posts',
+            'edit.php?post_type=cbp_blog'
+        );
+
+        // Add New Blog - links to the native WP new post screen for cbp_blog
+        add_submenu_page(
+            self::PAGE_SLUG,
+            __( 'Add New Blog', 'custom-blog-pro' ),
+            __( 'Add New Blog', 'custom-blog-pro' ),
+            'edit_posts',
+            'post-new.php?post_type=cbp_blog'
+        );
+
+        // Categories - links to the cbp_category taxonomy management screen
+        add_submenu_page(
+            self::PAGE_SLUG,
+            __( 'Blog Categories', 'custom-blog-pro' ),
+            __( 'Categories', 'custom-blog-pro' ),
+            'manage_categories',
+            'edit-tags.php?taxonomy=cbp_category&post_type=cbp_blog'
+        );
+
+        // Tags - links to the cbp_tag taxonomy management screen
+        add_submenu_page(
+            self::PAGE_SLUG,
+            __( 'Blog Tags', 'custom-blog-pro' ),
+            __( 'Tags', 'custom-blog-pro' ),
+            'manage_categories',
+            'edit-tags.php?taxonomy=cbp_tag&post_type=cbp_blog'
+        );
+
+        // --- Plugin Configuration Sub-Menus ---
+
         // Settings sub-menu
         add_submenu_page(
             self::PAGE_SLUG,
