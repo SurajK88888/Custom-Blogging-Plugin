@@ -330,7 +330,8 @@
 
 .cbp-single-thumbnail img {
     width: 100%;
-    height: auto;
+    height: 450px;
+    object-fit: cover;
     display: block;
 }
 
@@ -633,5 +634,9 @@
 
     .cbp-single-thumbnail {
         margin: 0 1rem 1.5rem;
+    }
+
+    .cbp-single-thumbnail img {
+        height: 250px;
     }
 }

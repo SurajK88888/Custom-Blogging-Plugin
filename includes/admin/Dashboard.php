@@ -50,15 +50,9 @@ class Dashboard {
         );
 
         // --- Blog Management Sub-Menus ---
-
-        // All Blogs - links to the native WP post list for cbp_blog
-        add_submenu_page(
-            self::PAGE_SLUG,
-            __( 'All Blogs', 'custom-blog-pro' ),
-            __( 'All Blogs', 'custom-blog-pro' ),
-            'edit_posts',
-            'edit.php?post_type=cbp_blog'
-        );
+        // Note: "All Blogs" is intentionally NOT registered here.
+        // WordPress auto-generates it from CPT registration (show_in_menu = 'cbp-dashboard'),
+        // so adding it explicitly would create a duplicate entry in the menu.
 
         // Add New Blog - links to the native WP new post screen for cbp_blog
         add_submenu_page(
